@@ -579,8 +579,8 @@ footer {
 
 <nav id="nav">
   <a href="#" class="logo">
-  <img src="voidcraftslogo.png" alt="Voidcrafts" style="height:38px;width:auto;object-fit:contain;vertical-align:middle;">
-</a>
+    <img src="voidcraftslogo.png" alt="Voidcrafts" style="height:40px;width:auto;object-fit:contain;vertical-align:middle;">
+  </a>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li><a href="#about">Studio</a></li>
@@ -590,27 +590,45 @@ footer {
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-tag">Digital Studio — Limbach-Oberfrohna</div>
-  <h1>
-    WE BUILD<br>
-    DIGITAL<br>
-    <em>THINGS.</em>
-  </h1>
-  <div class="hero-bottom">
-    <p class="hero-desc">
-      <strong>Websites, Design & digitale Lösungen</strong> für Unternehmen, Vereine und Creator — die wissen was sie wollen.
-    </p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Projekt starten</a>
-      <a href="#services" class="btn-ghost">Services</a>
+<section class="hero" style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;align-items:end;">
+  <div class="hero-bg" style="grid-column:1/-1;grid-row:1/-1;"></div>
+
+  <!-- Left col -->
+  <div style="grid-column:1;grid-row:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 80px 48px;position:relative;z-index:2;">
+    <div class="hero-tag">// Digital Studio</div>
+    <h1>
+      WE BUILD<br>
+      DIGITAL<br>
+      <em>THINGS.</em>
+    </h1>
+    <div style="margin-top:32px;">
+      <p class="hero-desc">
+        <strong>Websites, Design & digitale Lösungen</strong> für Unternehmen, Vereine und Creator — die wissen was sie wollen.
+      </p>
+      <div class="hero-actions" style="margin-top:24px;">
+        <a href="#contact" class="btn-primary">Projekt starten</a>
+        <a href="#services" class="btn-ghost">Services</a>
+      </div>
     </div>
   </div>
-  <div class="scroll-indicator">
+
+  <!-- Right col — Logo -->
+  <div style="grid-column:2;grid-row:1;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;">
+    <img src="voidcraftslogo.png" alt="Voidcrafts Logo"
+         style="width:min(420px,85%);height:auto;object-fit:contain;opacity:0.92;animation:heroFloat 6s ease-in-out infinite;">
+  </div>
+
+  <div class="scroll-indicator" style="grid-column:1/-1;grid-row:2;">
     <div class="scroll-line"></div>
   </div>
 </section>
+
+<style>
+@keyframes heroFloat {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+</style>
 
 <!-- SERVICES -->
 <section class="services" id="services">
@@ -674,9 +692,9 @@ footer {
 
 <!-- ABOUT -->
 <section class="about" id="about">
-  <div class="about-visual fade-up">
-    <div class="about-visual-inner">VC</div>
-    <div class="about-badge">Sachsen, DE</div>
+  <div class="about-visual fade-up" style="background:#080809;">
+    <img src="voidcraftslogo.png" alt="Voidcrafts"
+         style="width:75%;height:auto;object-fit:contain;position:relative;z-index:2;opacity:0.95;">
   </div>
   <div class="about-content fade-up" style="transition-delay:0.15s">
     <div class="section-tag">// Das Studio</div>
@@ -727,7 +745,9 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">VOID<span>CRAFTS</span></div>
+  <div class="footer-logo">
+    <img src="voidcraftslogo.png" alt="Voidcrafts" style="height:28px;width:auto;object-fit:contain;opacity:0.5;">
+  </div>
   <a href="#impressum" class="footer-impressum" onclick="toggleImpressum(event)">Impressum</a>
   <div class="footer-copy">&copy; 2026 Voidcrafts</div>
 </footer>
@@ -738,7 +758,7 @@ footer {
     <h2>IMPRESSUM</h2>
     <div class="impressum-block">
       <h3>Angaben gemäß § 5 TMG</h3>
-      <p>Lukas Staudinger<br>Friedhofstraße 2<br>09243 Niederfrohna</p>
+      <p>Lukas Staudinger<br>Friedhofstraße 2<br>09243 Niederfrohna<br><br>Betrieben unter: TubeYou Entertainment (Einzelgewerbe)</p>
     </div>
     <div class="impressum-block">
       <h3>Kontakt</h3>
