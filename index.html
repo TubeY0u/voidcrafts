@@ -1,800 +1,263 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voidcrafts — Digital Studio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #080809;
-  --bg2: #0f0f11;
-  --bg3: #151517;
-  --border: rgba(255,255,255,0.07);
-  --border-hover: rgba(255,255,255,0.14);
-  --text: #e8e8ec;
-  --muted: #6b6b78;
-  --accent: #e8e8ec;
-  --green: #4ade80;
-  --green-dim: rgba(74,222,128,0.1);
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voidcrafts — We Build Digital Things</title>
+  <meta name="description" content="Voidcrafts ist ein Ein-Mann Digital Studio aus Sachsen. Webdesign, Stream Assets und Grafikdesign — ohne Bullshit.">
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300;400;500&family=Inter:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* Noise overlay */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 999;
-}
-
-/* NAV */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 20px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s, background 0.3s;
-}
-nav.scrolled {
-  background: rgba(8,8,9,0.92);
-  backdrop-filter: blur(12px);
-  border-color: var(--border);
-}
-
-.logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px;
-  letter-spacing: 3px;
-  color: var(--text);
-  text-decoration: none;
-}
-.logo span { color: var(--green); }
-
-.nav-links {
-  display: flex;
-  gap: 36px;
-  list-style: none;
-}
-.nav-links a {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: var(--muted);
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--text); }
-
-.nav-cta {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--bg);
-  background: var(--text);
-  border: none;
-  padding: 10px 22px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-.nav-cta:hover { opacity: 0.8; }
-
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 48px 80px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(74,222,128,0.04) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(255,255,255,0.02) 0%, transparent 60%);
-}
-
-.hero-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 3px;
-  color: var(--green);
-  text-transform: uppercase;
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.hero-tag::before {
-  content: '';
-  width: 24px;
-  height: 1px;
-  background: var(--green);
-}
-
-.hero h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(72px, 12vw, 160px);
-  line-height: 0.9;
-  letter-spacing: 2px;
-  margin-bottom: 40px;
-}
-
-.hero h1 em {
-  font-style: normal;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.2);
-}
-
-.hero-bottom {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.hero-desc {
-  max-width: 380px;
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.hero-desc strong {
-  color: var(--text);
-  font-weight: 400;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.btn-primary {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--bg);
-  background: var(--text);
-  border: none;
-  padding: 14px 28px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: opacity 0.2s;
-  display: inline-block;
-}
-.btn-primary:hover { opacity: 0.85; }
-
-.btn-ghost {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--muted);
-  background: none;
-  border: 1px solid var(--border);
-  padding: 14px 28px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s;
-  display: inline-block;
-}
-.btn-ghost:hover { border-color: var(--border-hover); color: var(--text); }
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-.scroll-line {
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(to bottom, var(--muted), transparent);
-  animation: scrollPulse 2s ease infinite;
-}
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-
-/* SECTION BASE */
-section { padding: 120px 48px; }
-
-.section-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: var(--muted);
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(36px, 5vw, 64px);
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-  line-height: 1;
-}
-
-/* SERVICES */
-.services { background: var(--bg); }
-
-.services-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 64px;
-  gap: 40px;
-}
-
-.services-intro {
-  max-width: 320px;
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border: 1px solid var(--border);
-}
-
-.service-card {
-  padding: 40px 36px;
-  border-right: 1px solid var(--border);
-  transition: background 0.3s;
-  cursor: default;
-  position: relative;
-  overflow: hidden;
-}
-.service-card:last-child { border-right: none; }
-.service-card:hover { background: var(--bg2); }
-
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: var(--green);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
-}
-.service-card:hover::before { transform: scaleX(1); }
-
-.service-num {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--muted);
-  margin-bottom: 32px;
-}
-
-.service-icon {
-  width: 36px;
-  height: 36px;
-  margin-bottom: 24px;
-  opacity: 0.6;
-}
-
-.service-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-}
-
-.service-desc {
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.service-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 24px;
-}
-
-.tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 4px 8px;
-  border: 1px solid var(--border);
-  color: var(--muted);
-}
-
-/* ABOUT */
-.about {
-  background: var(--bg2);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.about-visual {
-  position: relative;
-  height: 400px;
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.about-visual-inner {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 180px;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.06);
-  letter-spacing: -4px;
-  user-select: none;
-  line-height: 1;
-}
-
-.about-badge {
-  position: absolute;
-  bottom: 24px;
-  right: 24px;
-  background: var(--green-dim);
-  border: 1px solid rgba(74,222,128,0.2);
-  padding: 8px 14px;
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--green);
-  text-transform: uppercase;
-}
-
-.about-content { }
-
-.about-text {
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.8;
-  margin-bottom: 40px;
-}
-.about-text strong { color: var(--text); font-weight: 400; }
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-  margin-bottom: 40px;
-}
-
-.stat {
-  padding: 24px;
-  background: var(--bg2);
-}
-
-.stat-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 42px;
-  letter-spacing: 1px;
-  color: var(--text);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.stat-num span { color: var(--green); }
-
-.stat-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-
-/* CONTACT */
-.contact {
-  background: var(--bg);
-  text-align: center;
-  padding: 120px 48px;
-}
-
-.contact-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 8vw, 100px);
-  letter-spacing: 3px;
-  line-height: 0.95;
-  margin-bottom: 32px;
-}
-
-.contact-title em {
-  font-style: normal;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.15);
-}
-
-.contact-sub {
-  font-size: 15px;
-  color: var(--muted);
-  margin-bottom: 48px;
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.contact-email {
-  font-family: 'DM Mono', monospace;
-  font-size: 14px;
-  letter-spacing: 2px;
-  color: var(--green);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(74,222,128,0.3);
-  padding-bottom: 2px;
-  transition: border-color 0.2s;
-  display: inline-block;
-  margin-bottom: 48px;
-}
-.contact-email:hover { border-color: var(--green); }
-
-/* FOOTER */
-footer {
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-  padding: 32px 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.footer-logo {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 18px;
-  letter-spacing: 3px;
-  color: var(--muted);
-}
-.footer-logo span { color: var(--green); }
-
-.footer-impressum {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--muted);
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.footer-impressum:hover { color: var(--text); }
-
-.footer-copy {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--muted);
-}
-
-/* IMPRESSUM SECTION */
-.impressum-section {
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-  padding: 80px 48px;
-  display: none;
-}
-.impressum-section.visible { display: block; }
-
-.impressum-content {
-  max-width: 600px;
-}
-
-.impressum-content h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 36px;
-  letter-spacing: 2px;
-  margin-bottom: 32px;
-}
-
-.impressum-block {
-  margin-bottom: 24px;
-}
-
-.impressum-block h3 {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--muted);
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.impressum-block p {
-  font-size: 14px;
-  color: var(--text);
-  line-height: 1.8;
-}
-
-/* ANIMATIONS */
-.fade-up {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (max-width: 768px) {
-  nav { padding: 16px 24px; }
-  .nav-links { display: none; }
-  .hero { padding: 0 24px 60px; }
-  .hero-bottom { flex-direction: column; align-items: flex-start; }
-  section { padding: 80px 24px; }
-  .services-header { flex-direction: column; align-items: flex-start; }
-  .services-grid { grid-template-columns: 1fr; }
-  .service-card { border-right: none; border-bottom: 1px solid var(--border); }
-  .about { grid-template-columns: 1fr; padding: 80px 24px; }
-  .about-visual { height: 200px; }
-  footer { flex-direction: column; text-align: center; padding: 24px; }
-  .impressum-section { padding: 60px 24px; }
-}
-</style>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/manifesto.css">
+  <link rel="stylesheet" href="css/work.css">
+  <link rel="stylesheet" href="css/about.css">
+  <link rel="stylesheet" href="css/services.css">
+  <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
 
-<nav id="nav">
-  <a href="#" class="logo">
-    <img src="voidcraftslogo.png" alt="Voidcrafts" style="height:40px;width:auto;object-fit:contain;vertical-align:middle;">
-  </a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">Studio</a></li>
-    <li><a href="#contact">Kontakt</a></li>
-  </ul>
-  <a href="#contact" class="nav-cta">Projekt anfragen</a>
-</nav>
+  <!-- Noise overlay -->
+  <div class="noise" aria-hidden="true"></div>
 
-<!-- HERO -->
-<section class="hero" style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;align-items:end;">
-  <div class="hero-bg" style="grid-column:1/-1;grid-row:1/-1;"></div>
+  <!-- Progress bar -->
+  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
 
-  <!-- Left col -->
-  <div style="grid-column:1;grid-row:1;display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 80px 48px;position:relative;z-index:2;">
-    <div class="hero-tag">// Digital Studio</div>
-    <h1>
-      WE BUILD<br>
-      DIGITAL<br>
-      <em>THINGS.</em>
-    </h1>
-    <div style="margin-top:32px;">
-      <p class="hero-desc">
-        <strong>Websites, Design & digitale Lösungen</strong> für Unternehmen, Vereine und Creator — die wissen was sie wollen.
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ── NAVIGATION ── -->
+  <nav id="nav">
+    <a class="nav-logo" href="#hero">VOIDCRAFTS</a>
+    <ul class="nav-links" role="list">
+      <li><a href="#work">Arbeiten</a></li>
+      <li><a href="#about">Studio</a></li>
+      <li><a href="#services">Services</a></li>
+    </ul>
+    <button class="nav-cta" data-scroll-to="contact">Kontakt aufnehmen</button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero" class="section-hero">
+    <div class="hero-orb hero-orb--violet" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb--cyan" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb--pink" aria-hidden="true"></div>
+    <canvas id="starCanvas" aria-hidden="true"></canvas>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal" data-delay="0">// Digital Studio · Sachsen</p>
+      <h1 class="hero-title reveal" data-delay="100">
+        <span class="hero-title__line">WE BUILD</span>
+        <span class="hero-title__line">DIGITAL</span>
+        <span class="hero-title__line">THINGS.</span>
+      </h1>
+      <p class="hero-sub reveal" data-delay="200">
+        Websites, Stream Assets &amp; Grafikdesign für Unternehmen,<br>
+        Vereine und Creator — die wissen was sie wollen.
       </p>
-      <div class="hero-actions" style="margin-top:24px;">
-        <a href="#contact" class="btn-primary">Projekt starten</a>
-        <a href="#services" class="btn-ghost">Services</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Right col — Logo -->
-  <div style="grid-column:2;grid-row:1;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;">
-    <img src="voidcraftslogo.png" alt="Voidcrafts Logo"
-         style="width:min(420px,85%);height:auto;object-fit:contain;opacity:0.92;animation:heroFloat 6s ease-in-out infinite;">
-  </div>
-
-  <div class="scroll-indicator" style="grid-column:1/-1;grid-row:2;">
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<style>
-@keyframes heroFloat {
-  0%,100% { transform: translateY(0px); }
-  50% { transform: translateY(-16px); }
-}
-</style>
-
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="services-header fade-up">
-    <div>
-      <div class="section-tag">// Was wir machen</div>
-      <div class="section-title">SERVICES</div>
-    </div>
-    <p class="services-intro">Von der ersten Idee bis zum fertigen Produkt. Kein Bullshit, keine versteckten Kosten — direkte Zusammenarbeit.</p>
-  </div>
-
-  <div class="services-grid">
-    <div class="service-card fade-up">
-      <div class="service-num">01</div>
-      <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="6" width="32" height="22" rx="2" stroke="#e8e8ec" stroke-width="1.5"/>
-        <path d="M12 28v4M24 28v4M8 32h20" stroke="#e8e8ec" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M10 16l4 4 8-8" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <div class="service-title">Webdesign</div>
-      <p class="service-desc">Moderne Websites für Unternehmen, Vereine und Selbstständige. Responsive, schnell, und ohne WordPress-Overhead.</p>
-      <div class="service-tags">
-        <span class="tag">HTML/CSS</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">Responsive</span>
+      <div class="hero-cta reveal" data-delay="300">
+        <button class="btn-primary" data-scroll-to="work">Meine Projekte</button>
+        <button class="btn-ghost" data-scroll-to="contact">Projekt starten</button>
       </div>
     </div>
 
-    <div class="service-card fade-up" style="transition-delay:0.1s">
-      <div class="service-num">02</div>
-      <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="2" y="2" width="32" height="32" rx="2" stroke="#e8e8ec" stroke-width="1.5"/>
-        <circle cx="18" cy="18" r="6" stroke="#4ade80" stroke-width="1.5"/>
-        <path d="M18 2v4M18 30v4M2 18h4M30 18h4" stroke="#e8e8ec" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <div class="service-title">Stream Assets</div>
-      <p class="service-desc">Overlays, Alerts, Panels und komplette Stream-Pakete für Twitch und YouTube. Animiert, individuell, sofort einsetzbar.</p>
-      <div class="service-tags">
-        <span class="tag">OBS</span>
-        <span class="tag">Overlays</span>
-        <span class="tag">Animiert</span>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span class="scroll-indicator__text">Scrollen</span>
+      <div class="scroll-indicator__line"></div>
+    </div>
+  </section>
+
+  <!-- ── MANIFESTO ── -->
+  <section id="manifesto" class="section-manifesto">
+    <div class="manifesto-bg" aria-hidden="true"></div>
+    <div class="manifesto-content" aria-label="Unser Manifesto">
+      <p class="manifesto-line" data-index="0">EIN MANN.</p>
+      <div class="manifesto-divider" aria-hidden="true"></div>
+      <p class="manifesto-line" data-index="1">EINE <em>VISION.</em></p>
+      <div class="manifesto-divider" aria-hidden="true"></div>
+      <p class="manifesto-line" data-index="2">KEIN <em class="c2">BULLSHIT.</em></p>
+    </div>
+  </section>
+
+  <!-- ── WORK ── -->
+  <section id="work" class="section-work">
+    <div class="work-bg" aria-hidden="true"></div>
+    <div class="section-inner">
+      <header class="section-header">
+        <p class="section-label reveal">Öffentliche Projekte</p>
+        <h2 class="section-title reveal" data-delay="80">MEINE<br><em>ARBEITEN</em></h2>
+      </header>
+
+      <div class="work-grid" role="list">
+        <!-- Card 1 — DieDonuts Esports -->
+        <article class="work-card reveal" data-delay="0" role="listitem">
+          <div class="work-card__num">001</div>
+          <figure class="work-card__visual">
+            <img src="assets/preview-donuts.jpg" alt="DieDonuts Esports – Website Preview" loading="lazy" draggable="false">
+          </figure>
+          <div class="work-card__body">
+            <h3 class="work-card__title">DIEDONUTS ESPORTS</h3>
+            <p class="work-card__tag">Website · Esports Organisation · CS2</p>
+            <p class="work-card__desc">Komplette Website für eine deutsche Counter-Strike 2 Organisation. Roster-Übersicht, Highlight-Timeline, Liga-Statistiken und Discord-Anbindung — von Null gebaut.</p>
+          </div>
+          <a class="work-card__arrow" href="https://donuts-esports.de" target="_blank" rel="noopener" aria-label="DieDonuts Esports Website besuchen">Ansehen →</a>
+        </article>
+
+        <!-- Card 2 — Feuerwehr Niederfrohna -->
+        <article class="work-card reveal" data-delay="80" role="listitem">
+          <div class="work-card__num">002</div>
+          <figure class="work-card__visual">
+            <img src="assets/preview-feuerwehr.jpg" alt="Feuerwehr Niederfrohna – Website Preview" loading="lazy" draggable="false">
+          </figure>
+          <div class="work-card__body">
+            <h3 class="work-card__title">FEUERWEHR NIEDERFROHNA</h3>
+            <p class="work-card__tag">Website · Verein · Webdesign</p>
+            <p class="work-card__desc">Moderner Webauftritt für die Freiwillige Feuerwehr Niederfrohna. Responsive, schnell, ohne WordPress-Overhead — direkt für die Einsatzkräfte vor Ort gebaut.</p>
+          </div>
+          <a class="work-card__arrow" href="http://feuerwehr-niederfrohna.de" target="_blank" rel="noopener" aria-label="Feuerwehr Niederfrohna Website besuchen">Ansehen →</a>
+        </article>
+
+        <!-- Card 3 — SZP Management & Consulting -->
+        <article class="work-card reveal" data-delay="160" role="listitem">
+          <div class="work-card__num">003</div>
+          <figure class="work-card__visual">
+            <img src="assets/preview-szp.jpg" alt="SZP Management & Consulting – Website Preview" loading="lazy" draggable="false">
+          </figure>
+          <div class="work-card__body">
+            <h3 class="work-card__title">DR. SCHARSCHUH, ZEIßLER & PARTNER</h3>
+            <p class="work-card__tag">Website · Beratung · One-Pager</p>
+            <p class="work-card__desc">Professioneller One-Pager für eine Management & Consulting Firma. Modernes Design mit KRITIS-Fokus, Teamvorstellung und direkter Kontaktstruktur.</p>
+          </div>
+          <a class="work-card__arrow" href="https://scharschuh-zeissler-partner.de" target="_blank" rel="noopener" aria-label="SZP Website besuchen">Ansehen →</a>
+        </article>
       </div>
     </div>
+  </section>
 
-    <div class="service-card fade-up" style="transition-delay:0.2s">
-      <div class="service-num">03</div>
-      <svg class="service-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6 28L14 8l8 12 5-7 3 15" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <rect x="2" y="2" width="32" height="32" rx="2" stroke="#e8e8ec" stroke-width="1.5"/>
-      </svg>
-      <div class="service-title">Grafikdesign</div>
-      <p class="service-desc">Logos, Branding, Social-Media-Grafiken und digitale Assets. Dark-Ästhetik ist eine Spezialität — aber nicht die einzige.</p>
-      <div class="service-tags">
-        <span class="tag">Logo</span>
-        <span class="tag">Branding</span>
-        <span class="tag">Social Media</span>
+  <!-- ── ABOUT ── -->
+  <section id="about" class="section-about">
+    <div class="about-bg" aria-hidden="true"></div>
+    <div class="section-inner about-inner">
+      <div class="about-left">
+        <p class="section-label reveal">Das Studio</p>
+        <h2 class="section-title reveal" data-delay="80">EIN MANN.<br><em>EINE</em><br>VISION.</h2>
+        <p class="body-text reveal" data-delay="120">
+          Voidcrafts ist ein Ein-Mann Digital Studio aus Sachsen.
+          Kein aufgeblähtes Agentur-Team, kein Callcenter —
+          du arbeitest direkt mit dem Menschen, der dein Projekt umsetzt.
+        </p>
+        <blockquote class="about-quote reveal" data-delay="160">
+          "Spezialisiert auf sauberes Webdesign,<br>Gaming-Assets und digitale Lösungen —<br>das Ergebnis sieht <em>nicht nach Internet aus.</em>"
+        </blockquote>
+        <p class="body-text reveal" data-delay="200">
+          Von der ersten Idee bis zum fertigen Produkt.
+          Keine versteckten Kosten, keine unnötige Komplexität —
+          direkte Zusammenarbeit, die funktioniert.
+        </p>
+        <a class="btn-ghost reveal" data-delay="240" style="margin-top: 20px; display: inline-block;" href="mailto:contact@voidcrafts.de">Zusammenarbeiten</a>
+      </div>
+
+      <div class="about-right reveal" data-delay="100">
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-num" data-target="3">0</span><span class="stat-suffix">+</span>
+            <p class="stat-label">Jahre Erfahrung</p>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num" data-target="100">0</span><span class="stat-suffix">%</span>
+            <p class="stat-label">Direkte Kommunikation</p>
+          </div>
+          <div class="stat-box stat-box--special">
+            <span class="stat-symbol">∞</span>
+            <p class="stat-label">Kaffee konsumiert</p>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num" data-target="0">0</span>
+            <p class="stat-label">Bullshit-Bingo</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-visual fade-up" style="background:#080809;">
-    <img src="voidcraftslogo.png" alt="Voidcrafts"
-         style="width:75%;height:auto;object-fit:contain;position:relative;z-index:2;opacity:0.95;">
-  </div>
-  <div class="about-content fade-up" style="transition-delay:0.15s">
-    <div class="section-tag">// Das Studio</div>
-    <div class="section-title">EIN MANN.<br>EINE VISION.</div>
-    <p class="about-text">
-      Voidcrafts ist ein <strong>Ein-Mann Digital Studio</strong> aus Sachsen. Kein aufgeblähtes Agentur-Team, kein Callcenter — du arbeitest direkt mit dem Menschen der dein Projekt umsetzt.
-      <br><br>
-      Spezialisiert auf <strong>sauberes Webdesign, Gaming-Assets und digitale Lösungen</strong> — mit dem Anspruch dass das Ergebnis nicht nach „irgendwas aus dem Internet" aussieht.
-    </p>
-    <div class="stats-grid">
-      <div class="stat">
-        <div class="stat-num">3<span>+</span></div>
-        <div class="stat-label">Jahre Erfahrung</div>
+  <!-- ── SERVICES ── -->
+  <section id="services" class="section-services">
+    <div class="services-bg" aria-hidden="true"></div>
+    <div class="section-inner">
+      <header class="section-header">
+        <p class="section-label reveal">Was wir tun</p>
+        <h2 class="section-title reveal" data-delay="80">UNSERE<br><em>SERVICES</em></h2>
+      </header>
+      <div class="services-grid">
+        <div class="service-item reveal" data-delay="0">
+          <span class="service-num">01</span>
+          <h3 class="service-name">WEBDESIGN</h3>
+          <p class="service-desc">Moderne Websites für Unternehmen, Vereine und Selbstständige. Responsive, schnell und ohne WordPress-Overhead — sauberer Code, der einfach funktioniert.</p>
+          <div class="service-tags">
+            <span class="tag">HTML / CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Responsive</span>
+          </div>
+        </div>
+        <div class="service-item reveal" data-delay="80">
+          <span class="service-num">02</span>
+          <h3 class="service-name">STREAM ASSETS</h3>
+          <p class="service-desc">Overlays, Alerts, Panels und komplette Stream-Pakete für Twitch und YouTube. Animiert, individuell, sofort einsetzbar — damit der Stream direkt professionell wirkt.</p>
+          <div class="service-tags">
+            <span class="tag">OBS</span>
+            <span class="tag">Overlays</span>
+            <span class="tag">Animiert</span>
+          </div>
+        </div>
+        <div class="service-item reveal" data-delay="160">
+          <span class="service-num">03</span>
+          <h3 class="service-name">GRAFIKDESIGN</h3>
+          <p class="service-desc">Logos, Branding, Social-Media-Grafiken und digitale Assets. Dark-Ästhetik ist eine Spezialität — aber nicht die einzige. Hauptsache es sieht nicht nach Template aus.</p>
+          <div class="service-tags">
+            <span class="tag">Logo</span>
+            <span class="tag">Branding</span>
+            <span class="tag">Social Media</span>
+          </div>
+        </div>
       </div>
-      <div class="stat">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Kaffee konsumiert</div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT / CTA ── -->
+  <section id="contact" class="section-contact">
+    <div class="contact-bg" aria-hidden="true"></div>
+    <div class="contact-content">
+      <p class="section-label reveal" style="justify-content: center;">Projekt, Frage oder einfach Hallo</p>
+      <h2 class="contact-title reveal" data-delay="80">LASS UNS<br>REDEN.</h2>
+      <p class="contact-sub reveal" data-delay="120">Antwort kommt innerhalb von 24 Stunden.</p>
+      <a class="contact-email reveal" data-delay="160" href="mailto:contact@voidcrafts.de">contact@voidcrafts.de</a>
+      <div class="contact-cta reveal" data-delay="200">
+        <button class="btn-primary">Projekt anfragen</button>
+        <button class="btn-ghost">Mehr erfahren</button>
       </div>
-      <div class="stat">
-        <div class="stat-num">100<span>%</span></div>
-        <div class="stat-label">Direkte Kommunikation</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">0</div>
-        <div class="stat-label">Bullshit-Bingo</div>
-      </div>
     </div>
-    <a href="#contact" class="btn-primary">Lass uns reden</a>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="fade-up">
-    <div class="section-tag" style="justify-content:center;display:flex">// Kontakt</div>
-    <div class="contact-title">
-      LASS UNS<br>
-      <em>ZUSAMMEN</em><br>
-      BAUEN.
-    </div>
-    <p class="contact-sub">Projekt, Frage oder einfach mal Hallo — schreib eine Mail. Antwort kommt innerhalb von 24 Stunden.</p>
-    <br>
-    <a href="mailto:contact@voidcrafts.de" class="contact-email">contact@voidcrafts.de</a>
-    <br>
-    <a href="mailto:contact@voidcrafts.de" class="btn-primary">Projekt anfragen</a>
-  </div>
-</section>
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <span class="footer-logo">VOIDCRAFTS</span>
+    <ul class="footer-links" role="list">
+      <li><a href="/impressum">Impressum</a></li>
+      <li><a href="/datenschutz">Datenschutz</a></li>
+      <li><a href="mailto:contact@voidcrafts.de">Kontakt</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Voidcrafts · Sachsen</span>
+  </footer>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">
-    <img src="voidcraftslogo.png" alt="Voidcrafts" style="height:28px;width:auto;object-fit:contain;opacity:0.5;">
-  </div>
-  <a href="#impressum" class="footer-impressum" onclick="toggleImpressum(event)">Impressum</a>
-  <div class="footer-copy">&copy; 2026 Voidcrafts</div>
-</footer>
-
-<!-- IMPRESSUM -->
-<div class="impressum-section" id="impressum">
-  <div class="impressum-content">
-    <h2>IMPRESSUM</h2>
-    <div class="impressum-block">
-      <h3>Angaben gemäß § 5 TMG</h3>
-      <p>Lukas Staudinger c/o flexdienst – #20963 <br Kurt-Schumacher-Straße 76 <br>67663 Kaiserslautern<br><br>Betrieben unter: TubeYou Entertainment (Einzelgewerbe)</p>
-    </div>
-    <div class="impressum-block">
-      <h3>Kontakt</h3>
-      <p>Telefon: 015568151323<br>E-Mail: contact@voidcrafts.de</p>
-    </div>
-    <div class="impressum-block">
-      <h3>Umsatzsteuerliche Angaben</h3>
-      <p>Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</p>
-    </div>
-    <div class="impressum-block">
-      <h3>Quelle</h3>
-      <p>eRecht24</p>
-    </div>
-  </div>
-</div>
-
-<script>
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('nav');
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-});
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-function toggleImpressum(e) {
-  e.preventDefault();
-  const imp = document.getElementById('impressum');
-  imp.classList.toggle('visible');
-  if (imp.classList.contains('visible')) {
-    setTimeout(() => imp.scrollIntoView({ behavior: 'smooth' }), 50);
-  }
-}
-</script>
+  <!-- Lenis smooth scroll -->
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+  <!-- App scripts (modules) -->
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
