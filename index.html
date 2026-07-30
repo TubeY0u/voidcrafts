@@ -6,9 +6,7 @@
   <title>Voidcrafts — We Build Digital Things</title>
   <meta name="description" content="Voidcrafts ist ein Ein-Mann Digital Studio aus Sachsen. Webdesign, Stream Assets und Grafikdesign — ohne Bullshit.">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300;400;500&family=Inter:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/fonts.css">
 
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
@@ -266,6 +264,64 @@
     </ul>
     <span class="footer-copy">© 2026 Voidcrafts · Sachsen</span>
   </footer>
+
+  <!-- ── COOKIE BANNER ── -->
+  <div id="cookieBanner" aria-live="polite" style="
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9000;
+    background: rgba(13,13,24,0.96);
+    border: 1px solid rgba(167,139,250,0.3);
+    border-radius: 4px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 680px;
+    width: calc(100% - 40px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    font-family: 'Inter', sans-serif;
+  ">
+    <div style="flex:1; min-width:0;">
+      <p style="font-size:13px; font-weight:400; color:#f0eeff; margin-bottom:4px; letter-spacing:0.2px;">
+        🍪 Wir haben keine Cookies.
+      </p>
+      <p style="font-size:12px; color:rgba(240,238,255,0.45); line-height:1.6; font-weight:300;">
+        Kein Tracking, kein Analytics, keine Ahnung wer du bist — und das ist so gewollt.
+        Trotzdem: <a href="/datenschutz" style="color:#a78bfa; text-decoration:none;">Datenschutz</a>
+      </p>
+    </div>
+    <div style="display:flex; gap:8px; flex-shrink:0;">
+      <button onclick="closeBanner()" style="
+        font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase;
+        background: linear-gradient(135deg,#a78bfa,#38bdf8); color:#07070c; border:none;
+        padding:10px 18px; border-radius:2px; cursor:pointer; font-weight:400;
+      ">OK, passt</button>
+      <button onclick="closeBanner()" style="
+        font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase;
+        background:transparent; color:rgba(240,238,255,0.4); border:1px solid rgba(167,139,250,0.2);
+        padding:10px 14px; border-radius:2px; cursor:pointer;
+      " title="Macht keinen Unterschied, wir sammeln eh nichts.">Ablehnen</button>
+    </div>
+  </div>
+  <script>
+    (function() {
+      if (localStorage.getItem('vc_notice')) {
+        document.getElementById('cookieBanner').style.display = 'none';
+      }
+    })();
+    function closeBanner() {
+      localStorage.setItem('vc_notice', '1');
+      var b = document.getElementById('cookieBanner');
+      b.style.transition = 'opacity 0.4s, transform 0.4s';
+      b.style.opacity = '0';
+      b.style.transform = 'translateX(-50%) translateY(20px)';
+      setTimeout(function(){ b.style.display = 'none'; }, 400);
+    }
+  </script>
 
   <!-- Lenis smooth scroll -->
   <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
