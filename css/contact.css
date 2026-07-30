@@ -1,0 +1,81 @@
+/* ════════════════════════════════════════
+   contact.css — Final CTA Section
+   ════════════════════════════════════════ */
+
+.section-contact {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-2);
+}
+
+.contact-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 50%, rgba(167, 139, 250, 0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 30% 80%, rgba(56, 189, 248, 0.05) 0%, transparent 50%);
+}
+
+.contact-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  max-width: 760px;
+  padding: 0 var(--gutter);
+}
+
+.contact-title {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 12vw, 160px);
+  line-height: 0.88;
+  letter-spacing: 5px;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 80px rgba(167, 139, 250, 0.2));
+}
+
+.contact-sub {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 200;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.contact-email {
+  font-family: var(--font-ui);
+  font-size: clamp(16px, 2vw, 24px);
+  font-weight: 300;
+  letter-spacing: 4px;
+  color: var(--violet);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 4px;
+  margin-top: 6px;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.contact-email:hover {
+  color: var(--cyan);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.contact-cta {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+@media (max-width: 500px) {
+  .contact-cta { flex-direction: column; width: 100%; }
+  .contact-cta .btn-primary,
+  .contact-cta .btn-ghost { width: 100%; text-align: center; }
+}

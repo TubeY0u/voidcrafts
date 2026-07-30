@@ -1,0 +1,68 @@
+/* ════════════════════════════════════════
+   manifesto.css
+   ════════════════════════════════════════ */
+
+.section-manifesto {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 var(--gutter);
+}
+
+.manifesto-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 60%),
+    var(--bg-2);
+}
+
+.manifesto-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.manifesto-line {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 6.5vw, 96px);
+  letter-spacing: 3px;
+  line-height: 1.05;
+  color: var(--faint);
+  transition: color 0.7s var(--ease), filter 0.7s var(--ease);
+  will-change: color, filter;
+}
+
+.manifesto-line.is-active {
+  color: var(--text);
+  filter: drop-shadow(0 0 28px rgba(167, 139, 250, 0.28));
+}
+
+.manifesto-line em {
+  font-style: normal;
+  color: var(--violet);
+  transition: color 0.7s;
+}
+
+.manifesto-line em.c2 {
+  color: var(--cyan);
+}
+
+/* When line is not active, em also fades */
+.manifesto-line:not(.is-active) em,
+.manifesto-line:not(.is-active) em.c2 {
+  color: rgba(167, 139, 250, 0.18);
+}
+
+.manifesto-divider {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(to bottom, var(--violet), var(--cyan));
+  margin: 8px 0;
+  opacity: 0.4;
+}

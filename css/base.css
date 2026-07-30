@@ -1,0 +1,218 @@
+/* ════════════════════════════════════════
+   base.css — Reset, Variables, Typography
+   ════════════════════════════════════════ */
+
+/* ── Custom Properties ── */
+:root {
+  /* Backgrounds */
+  --bg:       #07070c;
+  --bg-2:     #0d0d18;
+  --bg-3:     #131320;
+  --bg-card:  #0f0f1c;
+
+  /* Text */
+  --text:     #f0eeff;
+  --muted:    rgba(240, 238, 255, 0.45);
+  --faint:    rgba(240, 238, 255, 0.10);
+
+  /* Accent palette */
+  --violet:   #a78bfa;
+  --violet-d: #7c5fc0;
+  --cyan:     #38bdf8;
+  --cyan-d:   #0ea5e9;
+  --pink:     #f472b6;
+
+  /* Borders */
+  --border:   rgba(167, 139, 250, 0.14);
+  --border-h: rgba(167, 139, 250, 0.32);
+
+  /* Gradients */
+  --grad-violet-cyan: linear-gradient(135deg, var(--violet), var(--cyan));
+  --grad-text:        linear-gradient(160deg, #ffffff 0%, var(--violet) 55%, var(--cyan) 100%);
+
+  /* Easing */
+  --ease:     cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Spacing */
+  --gutter:    64px;
+  --gutter-sm: 24px;
+
+  /* Typography */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-ui:      'Oswald', sans-serif;
+  --font-body:    'Inter', sans-serif;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: none;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+a {
+  cursor: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+ul { list-style: none; }
+
+/* ── Typography utilities ── */
+.font-display { font-family: var(--font-display); }
+.font-ui      { font-family: var(--font-ui); }
+
+.gradient-text {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-violet-cyan {
+  background: var(--grad-violet-cyan);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Shared section text components ── */
+.section-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--violet);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 0 0 30px;
+  height: 1px;
+  background: var(--violet);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 6.5vw, 96px);
+  line-height: 0.92;
+  letter-spacing: 2px;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.section-title em {
+  font-style: normal;
+  color: var(--violet);
+}
+
+.body-text {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--grad-violet-cyan);
+  border: none;
+  padding: 15px 36px;
+  border-radius: 2px;
+  cursor: none;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), opacity 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.12);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 48px rgba(167, 139, 250, 0.28); }
+.btn-primary:hover::after { opacity: 1; }
+
+.btn-ghost {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 15px 36px;
+  border-radius: 2px;
+  cursor: none;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.btn-ghost:hover {
+  border-color: var(--border-h);
+  background: rgba(167, 139, 250, 0.06);
+}
+
+/* ── Tags ── */
+.tag {
+  font-family: var(--font-ui);
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 5px 12px;
+  border-radius: 1px;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.tag:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(56, 189, 248, 0.06);
+}

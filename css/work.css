@@ -1,0 +1,145 @@
+/* ════════════════════════════════════════
+   work.css — Projects Section
+   ════════════════════════════════════════ */
+
+.section-work {
+  background: var(--bg);
+}
+
+.work-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 60% at 100% 30%, rgba(167, 139, 250, 0.05) 0%, transparent 55%);
+}
+
+/* ── Grid ── */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.work-grid--two {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 960px;
+}
+
+/* ── Card ── */
+.work-card {
+  position: relative;
+  background: var(--bg);
+  padding: 40px 36px 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+  transition: background 0.4s var(--ease);
+}
+
+/* Top accent line on hover */
+.work-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--grad-violet-cyan);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease);
+}
+
+.work-card:hover { background: var(--bg-3); }
+.work-card:hover::before { transform: scaleX(1); }
+
+.work-card__num {
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--violet);
+  opacity: 0.5;
+  margin-bottom: 20px;
+}
+
+/* ── Project image/placeholder ── */
+.work-card__visual {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  background: var(--bg-2);
+  position: relative;
+}
+
+.work-card__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease), opacity 0.4s;
+  opacity: 0.85;
+}
+
+.work-card:hover .work-card__visual img {
+  transform: scale(1.04);
+  opacity: 1;
+}
+
+.work-card__body {
+  flex: 1;
+}
+
+.work-card__title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.work-card__tag {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 14px;
+}
+
+.work-card__desc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+/* ── Arrow CTA ── */
+.work-card__arrow {
+  position: absolute;
+  bottom: 36px; right: 36px;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: var(--violet);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.work-card:hover .work-card__arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .work-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 700px) {
+  .work-grid { grid-template-columns: 1fr; }
+}
