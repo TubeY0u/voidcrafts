@@ -2,330 +2,204 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Voidcrafts — We Build Digital Things</title>
-  <meta name="description" content="Voidcrafts ist ein Ein-Mann Digital Studio aus Sachsen. Webdesign, Stream Assets und Grafikdesign — ohne Bullshit.">
-
+  <title>Voidcrafts · Webdesign, Stream-Assets, Grafik</title>
+  <meta name="description" content="Voidcrafts ist ein Ein-Personen-Studio für Websites, Stream-Assets und Grafikdesign. Direkter Kontakt, feste Preise, kein Agentur-Overhead.">
   <link rel="stylesheet" href="css/fonts.css">
-
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/animations.css">
-  <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/manifesto.css">
-  <link rel="stylesheet" href="css/work.css">
-  <link rel="stylesheet" href="css/about.css">
-  <link rel="stylesheet" href="css/services.css">
-  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
 
-  <!-- Noise overlay -->
-  <div class="noise" aria-hidden="true"></div>
+  <header class="top">
+    <div class="wrap top__inner">
+      <a class="logo" href="#">
+        <svg width="26" height="26" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="vc-nav" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#a78bfa"/>
+              <stop offset="100%" stop-color="#38bdf8"/>
+            </linearGradient>
+          </defs>
+          <polygon points="14,18 60,18 100,162 140,18 186,18 100,182" fill="url(#vc-nav)"/>
+        </svg>
+        <span class="logo__text">VOIDCRAFTS</span>
+      </a>
+      <nav class="top__nav" aria-label="Hauptnavigation">
+        <a href="#arbeiten">Arbeiten</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#preise">Preise</a>
+        <a href="#kontakt" class="top__mail">Kontakt</a>
+      </nav>
+    </div>
+  </header>
 
-  <!-- Progress bar -->
-  <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+  <main>
 
-  <!-- Custom cursor -->
-  <div class="cursor" id="cursor" aria-hidden="true"></div>
-  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
-
-  <!-- ── NAVIGATION ── -->
-  <nav id="nav">
-    <a class="nav-logo" href="#hero">
-      <svg class="nav-logo__icon" width="28" height="28" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="vc-nav" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#a78bfa"/>
-            <stop offset="100%" stop-color="#38bdf8"/>
-          </linearGradient>
-        </defs>
-        <polygon points="14,18 60,18 100,162 140,18 186,18 100,182" fill="url(#vc-nav)"/>
-      </svg>
-      <span class="nav-logo__text">VOIDCRAFTS</span>
-    </a>
-    <ul class="nav-links" role="list">
-      <li><a href="#work">Arbeiten</a></li>
-      <li><a href="#about">Studio</a></li>
-      <li><a href="#services">Services</a></li>
-    </ul>
-    <button class="nav-cta" data-scroll-to="contact">Kontakt aufnehmen</button>
-  </nav>
-
-  <!-- ── HERO ── -->
-  <section id="hero" class="section-hero">
-    <div class="hero-orb hero-orb--violet" aria-hidden="true"></div>
-    <div class="hero-orb hero-orb--cyan" aria-hidden="true"></div>
-    <div class="hero-orb hero-orb--pink" aria-hidden="true"></div>
-    <canvas id="starCanvas" aria-hidden="true"></canvas>
-
-    <div class="hero-content">
-      <p class="hero-eyebrow reveal" data-delay="0">// Digital Studio · Sachsen</p>
-      <h1 class="hero-title reveal" data-delay="100">
-        <span class="hero-title__line">WE BUILD</span>
-        <span class="hero-title__line">DIGITAL</span>
-        <span class="hero-title__line">THINGS.</span>
-      </h1>
-      <p class="hero-sub reveal" data-delay="200">
-        Websites, Stream Assets &amp; Grafikdesign<br>
-        für Unternehmen, Vereine und Creator.
-      </p>
-      <div class="hero-cta reveal" data-delay="300">
-        <button class="btn-primary" data-scroll-to="work">Meine Projekte</button>
-        <button class="btn-ghost" data-scroll-to="contact">Projekt starten</button>
+    <section class="intro wrap">
+      <h1>Websites, Stream-Overlays und Grafiken. Gebaut von einer Person, nicht von einer Agentur.</h1>
+      <div class="intro__side">
+        <p>Ich bin Lukas und mache unter dem Namen Voidcrafts Webdesign und Grafik für kleine Firmen, Vereine und Creator. Du schreibst mir, ich antworte, ich baue. Dazwischen gibt es keinen Projektmanager.</p>
+        <ul class="facts">
+          <li>Antwort meist am selben Tag</li>
+          <li>Festpreis vor Projektstart</li>
+          <li>Kein WordPress, keine Abo-Falle</li>
+        </ul>
+        <p><a class="link-arrow" href="#preise">Kosten selbst ausrechnen</a></p>
       </div>
-    </div>
+    </section>
 
-    <div class="scroll-indicator" aria-hidden="true">
-      <span class="scroll-indicator__text">Scrollen</span>
-      <div class="scroll-indicator__line"></div>
-    </div>
-  </section>
+    <section id="arbeiten" class="block wrap">
+      <h2 class="block__title">Arbeiten</h2>
 
-  <!-- ── MANIFESTO ── -->
-  <section id="manifesto" class="section-manifesto">
-    <div class="manifesto-bg" aria-hidden="true"></div>
-    <div class="manifesto-content" aria-label="Unser Manifesto">
-      <p class="manifesto-line" data-index="0">EIN MANN.</p>
-      <div class="manifesto-divider" aria-hidden="true"></div>
-      <p class="manifesto-line" data-index="1">EINE <em>VISION.</em></p>
-      <div class="manifesto-divider" aria-hidden="true"></div>
-      <p class="manifesto-line" data-index="2">KEIN <em class="c2">BULLSHIT.</em></p>
-    </div>
-  </section>
-
-  <!-- ── WORK ── -->
-  <section id="work" class="section-work">
-    <div class="work-bg" aria-hidden="true"></div>
-    <div class="section-inner">
-      <header class="section-header">
-        <p class="section-label reveal">Öffentliche Projekte</p>
-        <h2 class="section-title reveal" data-delay="80">MEINE<br><em>ARBEITEN</em></h2>
-      </header>
-
-      <div class="work-grid" role="list">
-        <!-- Card 1 — DieDonuts Esports -->
-        <article class="work-card reveal" data-delay="0" role="listitem">
-          <div class="work-card__num">001</div>
-          <figure class="work-card__visual">
-            <img src="assets/preview-donuts.jpg" alt="DieDonuts Esports – Website Preview" loading="lazy" draggable="false">
-          </figure>
-          <div class="work-card__body">
-            <h3 class="work-card__title">DIEDONUTS ESPORTS</h3>
-            <p class="work-card__tag">Website · Esports Organisation · CS2</p>
-            <p class="work-card__desc">Komplette Website für eine deutsche Counter-Strike 2 Organisation. Roster-Übersicht, Highlight-Timeline, Liga-Statistiken und Discord-Anbindung. Von Null gebaut.</p>
-          </div>
-          <a class="work-card__arrow" href="https://donuts-esports.de" target="_blank" rel="noopener" aria-label="DieDonuts Esports Website besuchen">Ansehen →</a>
-        </article>
-
-        <!-- Card 2 — Feuerwehr Niederfrohna -->
-        <article class="work-card reveal" data-delay="80" role="listitem">
-          <div class="work-card__num">002</div>
-          <figure class="work-card__visual">
-            <img src="assets/preview-feuerwehr.jpg" alt="Feuerwehr Niederfrohna – Website Preview" loading="lazy" draggable="false">
-          </figure>
-          <div class="work-card__body">
-            <h3 class="work-card__title">FEUERWEHR NIEDERFROHNA</h3>
-            <p class="work-card__tag">Website · Verein · Webdesign</p>
-            <p class="work-card__desc">Moderner Webauftritt für die Freiwillige Feuerwehr Niederfrohna. Responsive, schnell, ohne WordPress-Overhead. Direkt für die Einsatzkräfte vor Ort gebaut.</p>
-          </div>
-          <a class="work-card__arrow" href="http://feuerwehr-niederfrohna.de" target="_blank" rel="noopener" aria-label="Feuerwehr Niederfrohna Website besuchen">Ansehen →</a>
-        </article>
-
-        <!-- Card 3 — SZP Management & Consulting -->
-        <article class="work-card reveal" data-delay="160" role="listitem">
-          <div class="work-card__num">003</div>
-          <figure class="work-card__visual">
-            <img src="assets/preview-szp.jpg" alt="SZP Management & Consulting – Website Preview" loading="lazy" draggable="false">
-          </figure>
-          <div class="work-card__body">
-            <h3 class="work-card__title">DR. SCHARSCHUH, ZEIßLER & PARTNER</h3>
-            <p class="work-card__tag">Website · Beratung · One-Pager</p>
-            <p class="work-card__desc">Professioneller One-Pager für eine Management & Consulting Firma. Modernes Design mit KRITIS-Fokus, Teamvorstellung und direkter Kontaktstruktur.</p>
-          </div>
-          <a class="work-card__arrow" href="https://scharschuh-zeissler-partner.de" target="_blank" rel="noopener" aria-label="SZP Website besuchen">Ansehen →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── ABOUT ── -->
-  <section id="about" class="section-about">
-    <div class="about-bg" aria-hidden="true"></div>
-    <div class="section-inner about-inner">
-      <div class="about-left">
-        <p class="section-label reveal">Das Studio</p>
-        <h2 class="section-title reveal" data-delay="80">EIN MANN.<br><em>EINE</em><br>VISION.</h2>
-        <p class="body-text reveal" data-delay="120">
-          Voidcrafts ist ein Ein-Mann Digital Studio aus Sachsen.
-          Kein aufgeblähtes Agenturteam, kein Callcenter.
-          Du arbeitest direkt mit dem Menschen, der dein Projekt umsetzt.
-        </p>
-        <blockquote class="about-quote reveal" data-delay="160">
-          "Spezialisiert auf sauberes Webdesign,<br>Gaming-Assets und digitale Lösungen —<br>das Ergebnis sieht <em>nicht nach Internet aus.</em>"
-        </blockquote>
-        <p class="body-text reveal" data-delay="200">
-          Von der ersten Idee bis zum fertigen Produkt.
-          Keine versteckten Kosten, keine unnötige Komplexität.
-          Direkte Zusammenarbeit, die funktioniert.
-        </p>
-        <a class="btn-ghost reveal" data-delay="240" style="margin-top: 20px; display: inline-block;" href="mailto:contact@voidcrafts.de">Zusammenarbeiten</a>
-      </div>
-
-      <div class="about-right reveal" data-delay="100">
-        <div class="stats-grid">
-          <div class="stat-box">
-            <span class="stat-num" data-target="3">0</span><span class="stat-suffix">+</span>
-            <p class="stat-label">Jahre Erfahrung</p>
-          </div>
-          <div class="stat-box">
-            <span class="stat-num" data-target="100">0</span><span class="stat-suffix">%</span>
-            <p class="stat-label">Direkte Kommunikation</p>
-          </div>
-          <div class="stat-box stat-box--special">
-            <span class="stat-symbol">∞</span>
-            <p class="stat-label">Kaffee konsumiert</p>
-          </div>
-          <div class="stat-box">
-            <span class="stat-num" data-target="0">0</span>
-            <p class="stat-label">Bullshit-Bingo</p>
-          </div>
+      <article class="project">
+        <a class="project__img" href="https://donuts-esports.de" target="_blank" rel="noopener noreferrer">
+          <img src="assets/preview-donuts.jpg" alt="Startseite von DieDonuts Esports" loading="lazy" width="1600" height="900">
+        </a>
+        <div class="project__text">
+          <h3>DieDonuts Esports</h3>
+          <p class="project__meta">Website · Counter-Strike-2-Team</p>
+          <p>Roster, Highlight-Timeline, Liga-Statistiken und Twitch-Anbindung. Die Daten aktualisieren sich automatisch, das Team muss nichts pflegen.</p>
+          <a class="link-arrow" href="https://donuts-esports.de" target="_blank" rel="noopener noreferrer">donuts-esports.de</a>
         </div>
-      </div>
-    </div>
-  </section>
+      </article>
 
-  <!-- ── SERVICES ── -->
-  <section id="services" class="section-services">
-    <div class="services-bg" aria-hidden="true"></div>
-    <div class="section-inner">
-      <header class="section-header">
-        <p class="section-label reveal">Was wir tun</p>
-        <h2 class="section-title reveal" data-delay="80">UNSERE<br><em>SERVICES</em></h2>
-      </header>
-      <div class="services-grid">
-        <div class="service-item reveal" data-delay="0">
-          <span class="service-num">01</span>
-          <h3 class="service-name">WEBDESIGN</h3>
-          <p class="service-desc">Moderne Websites für Unternehmen, Vereine und Selbstständige. Responsive, schnell und ohne WordPress-Overhead — sauberer Code, der einfach funktioniert.</p>
-          <div class="service-tags">
-            <span class="tag">HTML / CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Responsive</span>
-          </div>
+      <article class="project">
+        <a class="project__img" href="http://feuerwehr-niederfrohna.de" target="_blank" rel="noopener noreferrer">
+          <img src="assets/preview-feuerwehr.jpg" alt="Startseite der Freiwilligen Feuerwehr Niederfrohna" loading="lazy" width="1600" height="900">
+        </a>
+        <div class="project__text">
+          <h3>Feuerwehr Niederfrohna</h3>
+          <p class="project__meta">Website · Verein</p>
+          <p>Neuer Webauftritt für die Freiwillige Feuerwehr: Einsätze, Fahrzeuge, Mitgliederwerbung. Schnell auf dem Handy, ohne CMS-Ballast.</p>
+          <a class="link-arrow" href="http://feuerwehr-niederfrohna.de" target="_blank" rel="noopener noreferrer">feuerwehr-niederfrohna.de</a>
         </div>
-        <div class="service-item reveal" data-delay="80">
-          <span class="service-num">02</span>
-          <h3 class="service-name">STREAM ASSETS</h3>
-          <p class="service-desc">Overlays, Alerts, Panels und komplette Stream-Pakete für Twitch und YouTube. Animiert, individuell, sofort einsetzbar — damit der Stream direkt professionell wirkt.</p>
-          <div class="service-tags">
-            <span class="tag">OBS</span>
-            <span class="tag">Overlays</span>
-            <span class="tag">Animiert</span>
-          </div>
-        </div>
-        <div class="service-item reveal" data-delay="160">
-          <span class="service-num">03</span>
-          <h3 class="service-name">GRAFIKDESIGN</h3>
-          <p class="service-desc">Logos, Branding, Social-Media-Grafiken und digitale Assets. Dark-Ästhetik ist eine Spezialität — aber nicht die einzige. Hauptsache es sieht nicht nach Template aus.</p>
-          <div class="service-tags">
-            <span class="tag">Logo</span>
-            <span class="tag">Branding</span>
-            <span class="tag">Social Media</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      </article>
 
-  <!-- ── CONTACT / CTA ── -->
-  <section id="contact" class="section-contact">
-    <div class="contact-bg" aria-hidden="true"></div>
-    <div class="contact-content">
-      <p class="section-label reveal" style="justify-content: center;">Projekt, Frage oder einfach Hallo</p>
-      <h2 class="contact-title reveal" data-delay="80">LASS UNS<br>REDEN.</h2>
-      <p class="contact-sub reveal" data-delay="120">Antwort kommt innerhalb von 24 Stunden.</p>
-      <a class="contact-email reveal" data-delay="160" href="mailto:contact@voidcrafts.de">contact@voidcrafts.de</a>
-      <div class="contact-cta reveal" data-delay="200">
-        <button class="btn-primary">Projekt anfragen</button>
-        <button class="btn-ghost">Mehr erfahren</button>
-      </div>
-    </div>
-  </section>
+      <article class="project">
+        <a class="project__img" href="https://scharschuh-zeissler-partner.de" target="_blank" rel="noopener noreferrer">
+          <img src="assets/preview-szp.jpg" alt="Startseite von Dr. Scharschuh, Zeißler &amp; Partner" loading="lazy" width="1600" height="900">
+        </a>
+        <div class="project__text">
+          <h3>Dr. Scharschuh, Zeißler &amp; Partner</h3>
+          <p class="project__meta">One-Pager · Unternehmensberatung</p>
+          <p>Ruhiger, seriöser Auftritt für eine Beratung mit KRITIS-Schwerpunkt. Team, Leistungen und ein kurzer Weg zum Erstgespräch.</p>
+          <a class="link-arrow" href="https://scharschuh-zeissler-partner.de" target="_blank" rel="noopener noreferrer">scharschuh-zeissler-partner.de</a>
+        </div>
+      </article>
+    </section>
 
-  <!-- ── FOOTER ── -->
-  <footer class="site-footer">
-    <span class="footer-logo">VOIDCRAFTS</span>
-    <ul class="footer-links" role="list">
-      <li><a href="/impressum">Impressum</a></li>
-      <li><a href="/datenschutz">Datenschutz</a></li>
-      <li><a href="mailto:contact@voidcrafts.de">Kontakt</a></li>
-      <li><a href="https://www.instagram.com/void__crafts/" target="_blank" rel="noopener" aria-label="Voidcrafts auf Instagram">Instagram</a></li>
-    </ul>
-    <span class="footer-copy">© 2026 Voidcrafts · Sachsen</span>
+    <section id="leistungen" class="block wrap">
+      <h2 class="block__title">Leistungen</h2>
+      <dl class="services">
+        <div>
+          <dt>Webdesign</dt>
+          <dd>One-Pager bis mittelgroße Websites. Handgeschriebener Code, läuft auf jedem Handy, lädt schnell. Hosting und Domain richte ich auf Wunsch mit ein.</dd>
+        </div>
+        <div>
+          <dt>Stream-Assets</dt>
+          <dd>Overlays, Alerts, Panels und Emotes für Twitch und YouTube. Passend zu deinem Kanal, fertig für OBS.</dd>
+        </div>
+        <div>
+          <dt>Grafikdesign</dt>
+          <dd>Logos, Visitenkarten, Social-Media-Vorlagen, Banner. Auch hell und freundlich, nicht nur dunkel und neon.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="preise" class="block wrap">
+      <h2 class="block__title">Was kostet das?</h2>
+      <p class="block__lead">Klick zusammen, was du brauchst. Das Ergebnis ist ein Richtwert. Den genauen Festpreis bekommst du nach einem kurzen Gespräch.</p>
+
+      <form class="calc" id="calc">
+        <div class="calc__inputs">
+          <fieldset class="calc__type">
+            <legend>Was brauchst du?</legend>
+            <label><input type="radio" name="type" value="web" checked> Website</label>
+            <label><input type="radio" name="type" value="stream"> Stream-Paket</label>
+            <label><input type="radio" name="type" value="grafik"> Grafik</label>
+          </fieldset>
+
+          <fieldset data-type="web">
+            <legend>Website</legend>
+            <label class="calc__range">
+              <span>Anzahl Seiten: <output id="pagesOut">1</output></span>
+              <input type="range" name="pages" min="1" max="12" value="1">
+            </label>
+            <label><input type="checkbox" name="web" value="form"> Kontaktformular</label>
+            <label><input type="checkbox" name="web" value="news"> News- oder Termin-Bereich</label>
+            <label><input type="checkbox" name="web" value="lang"> Zweite Sprache</label>
+            <label><input type="checkbox" name="web" value="texts"> Texte schreibe ich</label>
+            <label><input type="checkbox" name="web" value="setup"> Domain &amp; Hosting einrichten</label>
+            <label><input type="checkbox" name="web" value="care"> Laufende Pflege</label>
+          </fieldset>
+
+          <fieldset data-type="stream" hidden>
+            <legend>Stream-Paket</legend>
+            <label><input type="checkbox" name="stream" value="scenes" checked> Szenen (Starting, Pause, Ende)</label>
+            <label><input type="checkbox" name="stream" value="cam"> Webcam-Rahmen</label>
+            <label><input type="checkbox" name="stream" value="alerts"> Animierte Alerts</label>
+            <label><input type="checkbox" name="stream" value="panels"> Panels (bis 8 Stück)</label>
+            <label class="calc__num">
+              <span>Emotes</span>
+              <input type="number" name="emotes" min="0" max="30" value="0" inputmode="numeric">
+            </label>
+          </fieldset>
+
+          <fieldset data-type="grafik" hidden>
+            <legend>Grafik</legend>
+            <label><input type="checkbox" name="grafik" value="logo" checked> Logo (3 Entwürfe, 2 Korrekturrunden)</label>
+            <label><input type="checkbox" name="grafik" value="cards"> Visitenkarte</label>
+            <label><input type="checkbox" name="grafik" value="social"> 5 Social-Media-Vorlagen</label>
+            <label><input type="checkbox" name="grafik" value="banner"> Banner / Header</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Zeitrahmen</legend>
+            <label><input type="radio" name="speed" value="normal" checked> Normal (2 bis 4 Wochen)</label>
+            <label><input type="radio" name="speed" value="rush"> Eilig (unter 2 Wochen)</label>
+          </fieldset>
+        </div>
+
+        <aside class="calc__result" aria-live="polite">
+          <p class="calc__label">Richtwert</p>
+          <p class="calc__total" id="total">–</p>
+          <p class="calc__monthly" id="monthly" hidden></p>
+          <ul class="calc__lines" id="lines"></ul>
+          <p class="calc__note">Kleinunternehmer nach § 19 UStG, es kommt keine Umsatzsteuer dazu.</p>
+          <a class="button" id="calcMail" href="mailto:contact@voidcrafts.de">Anfrage mit dieser Auswahl</a>
+        </aside>
+      </form>
+    </section>
+
+    <section id="ueber" class="block wrap about">
+      <h2 class="block__title">Wer dahinter steckt</h2>
+      <div class="about__text">
+        <p>Voidcrafts bin ich allein. Ich mache das seit über drei Jahren, angefangen mit Overlays für befreundete Streamer, inzwischen vor allem Websites für Vereine und kleine Firmen.</p>
+        <p>Weil ich alles selbst baue, weiß ich bei jeder Frage, wovon ich rede. Und weil ich kein Büro und kein Team bezahlen muss, bleiben die Preise überschaubar.</p>
+      </div>
+    </section>
+
+    <section id="kontakt" class="block wrap contact">
+      <h2 class="block__title">Kontakt</h2>
+      <p class="contact__lead">Schreib mir kurz, worum es geht. Ein paar Sätze reichen.</p>
+      <p><a class="contact__mail" href="mailto:contact@voidcrafts.de">contact@voidcrafts.de</a></p>
+      <p class="contact__alt">oder auf Instagram: <a href="https://www.instagram.com/void__crafts/" target="_blank" rel="noopener noreferrer">@void__crafts</a></p>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <span>© 2026 Voidcrafts</span>
+      <nav aria-label="Rechtliches">
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+      </nav>
+    </div>
   </footer>
 
-  <!-- ── COOKIE BANNER ── -->
-  <div id="cookieBanner" aria-live="polite" style="
-    position: fixed;
-    bottom: 28px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 9000;
-    background: rgba(13,13,24,0.96);
-    border: 1px solid rgba(167,139,250,0.3);
-    border-radius: 4px;
-    padding: 18px 24px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    max-width: 680px;
-    width: calc(100% - 40px);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-    font-family: 'Inter', sans-serif;
-  ">
-    <div style="flex:1; min-width:0;">
-      <p style="font-size:13px; font-weight:400; color:#f0eeff; margin-bottom:4px; letter-spacing:0.2px;">
-        🍪 Wir haben keine Cookies.
-      </p>
-      <p style="font-size:12px; color:rgba(240,238,255,0.45); line-height:1.6; font-weight:300;">
-        Kein Tracking, kein Analytics, keine Ahnung wer du bist — und das ist so gewollt.
-        Trotzdem: <a href="/datenschutz" style="color:#a78bfa; text-decoration:none;">Datenschutz</a>
-      </p>
-    </div>
-    <div style="display:flex; gap:8px; flex-shrink:0;">
-      <button onclick="closeBanner()" style="
-        font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase;
-        background: linear-gradient(135deg,#a78bfa,#38bdf8); color:#07070c; border:none;
-        padding:10px 18px; border-radius:2px; cursor:pointer; font-weight:400;
-      ">OK, passt</button>
-      <button onclick="closeBanner()" style="
-        font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:3px; text-transform:uppercase;
-        background:transparent; color:rgba(240,238,255,0.4); border:1px solid rgba(167,139,250,0.2);
-        padding:10px 14px; border-radius:2px; cursor:pointer;
-      " title="Macht keinen Unterschied, wir sammeln eh nichts.">Ablehnen</button>
-    </div>
-  </div>
-  <script>
-    (function() {
-      if (localStorage.getItem('vc_notice')) {
-        document.getElementById('cookieBanner').style.display = 'none';
-      }
-    })();
-    function closeBanner() {
-      localStorage.setItem('vc_notice', '1');
-      var b = document.getElementById('cookieBanner');
-      b.style.transition = 'opacity 0.4s, transform 0.4s';
-      b.style.opacity = '0';
-      b.style.transform = 'translateX(-50%) translateY(20px)';
-      setTimeout(function(){ b.style.display = 'none'; }, 400);
-    }
-  </script>
-
-  <!-- Lenis smooth scroll -->
-  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-  <!-- App scripts (modules) -->
-  <script type="module" src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
